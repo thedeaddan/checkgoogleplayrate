@@ -15,10 +15,10 @@ def check(message):
 			soup = BeautifulSoup(response.text, 'lxml')
 			quotes = str(soup.find('span',class_="AYi5wd TBRnV")).split('"')[3].split(' ')[0]
 			soup = BeautifulSoup(response.text, 'lxml')
-			rare = str(soup.find('div',class_="pf5lIe")).split('"')[3].split(' ')[1]
-			bot.send_message(message.chat.id,"👤"+quotes+" всего оценок\n⭐️"+rare+" оценка приложения")
+			rare = str(soup.find('div',class_="BHMmbe")).split("=")[1].split('"')[1]
+			bot.send_message(message.chat.id,"👤"+quotes+" всего оценок\n⭐️"+rare)
 		except:
-			bot.send_message(message.chat.id,"Вы не дали ссылку на приложение")
+			bot.send_message(message.chat.id,"Вы не дали ссылку на приложение\n"+traceback.format_exc())
 	except Exception:
 		bot.send_message(message.chat.id,traceback.format_exc())
 
